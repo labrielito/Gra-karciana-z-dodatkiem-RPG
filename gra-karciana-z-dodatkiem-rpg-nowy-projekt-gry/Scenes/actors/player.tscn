@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvlkcq5m0c28j"]
+
+[ext_resource type="Script" uid="uid://7jihh1ctaqus" path="res://scripts/Player.cs" id="1_rd77e"]
+[ext_resource type="Texture2D" uid="uid://cnp13fieidse2" path="res://assets/art/WarriorFront.png" id="2_bymgk"]
+[ext_resource type="Texture2D" uid="uid://cqloexuivjop1" path="res://assets/art/WarriorBack.png" id="3_j020d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(48, 64)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-32, 32)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_rd77e")
+TextureFront = ExtResource("2_bymgk")
+TextureBack = ExtResource("3_j020d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(32, -32)
+scale = Vector2(0.062499996, 0.062499996)
+texture = ExtResource("2_bymgk")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(32, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(32, -32)
+shape = SubResource("RectangleShape2D_hqtel")

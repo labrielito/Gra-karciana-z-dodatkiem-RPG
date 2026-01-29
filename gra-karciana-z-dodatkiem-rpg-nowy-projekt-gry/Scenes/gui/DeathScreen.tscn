@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://biif6p1t0m4wi"]
+
+[ext_resource type="Script" uid="uid://8bbggvmxqu1r" path="res://Scenes/gui/DeathScreen.cs" id="1_6wgpi"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("RestartButton", "MainMenuButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6wgpi")
+RestartButton = NodePath("VBoxContainer/PlayAgainButton")
+MainMenuButton = NodePath("VBoxContainer/EscapeButton")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 192.0
+offset_right = 768.0
+offset_bottom = 448.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Do you want to try again?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Restart"
+
+[node name="EscapeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Main menu
+"

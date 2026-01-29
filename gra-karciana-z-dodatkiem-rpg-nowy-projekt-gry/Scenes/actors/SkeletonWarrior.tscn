@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0an1mx6y7pkd"]
+
+[ext_resource type="Script" uid="uid://c1wv8n5ngjjj6" path="res://Scenes/actors/SkeletonWarriorEnemy.cs" id="1_7pkrj"]
+[ext_resource type="Texture2D" uid="uid://baxx3vxxn2vmh" path="res://assets/art/SkeletonWarrior.png" id="1_ehr12"]
+[ext_resource type="Resource" uid="uid://x0hgwhakenva" path="res://Resources/SkeletonStats.tres" id="2_o0pk0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pkrj"]
+size = Vector2(56, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0pk0"]
+size = Vector2(104, 128)
+
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("LevelLabel", "HPLabel")]
+script = ExtResource("1_7pkrj")
+Stats = ExtResource("2_o0pk0")
+LevelLabel = NodePath("InfoBar/LevelLabel")
+HPLabel = NodePath("InfoBar/HPLabel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05741004, 0.055989586)
+texture = ExtResource("1_ehr12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_7pkrj")
+
+[node name="InfoBar" type="VBoxContainer" parent="."]
+offset_left = -40.0
+offset_top = -90.0
+offset_right = 40.0
+offset_bottom = -40.0
+
+[node name="LevelLabel" type="Label" parent="InfoBar"]
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="InfoBar"]
+layout_mode = 2
+
+[node name="DetectionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_o0pk0")
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]

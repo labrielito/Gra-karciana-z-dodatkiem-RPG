@@ -1,0 +1,121 @@
+[gd_scene load_steps=4 format=3 uid="uid://epkmfktaywch"]
+
+[ext_resource type="Script" uid="uid://bn57jdpqgjvwe" path="res://Scenes/gui/BattleScene.cs" id="1_424x8"]
+[ext_resource type="Texture2D" uid="uid://cnp13fieidse2" path="res://assets/art/WarriorFront.png" id="2_ufmri"]
+[ext_resource type="Texture2D" uid="uid://baxx3vxxn2vmh" path="res://assets/art/SkeletonWarrior.png" id="3_rme3j"]
+
+[node name="BattleScene" type="Node2D" node_paths=PackedStringArray("PlayerHPLabel", "PlayerStaminaLabel", "VictoryLabel", "PlayerImage", "EnemyHPLabel", "EnemyStatsLabel", "EnemyImage", "CardAttackButton", "CardSkill1Button", "CardSkill2Button")]
+script = ExtResource("1_424x8")
+PlayerHPLabel = NodePath("ColorRect/Box1/PlayerInfo/HPLabel")
+PlayerStaminaLabel = NodePath("ColorRect/Box1/PlayerInfo/StaminaLabel")
+VictoryLabel = NodePath("ColorRect/WinLabel")
+PlayerImage = NodePath("ColorRect/Box1/PlayerInfo/PlayerImage")
+EnemyHPLabel = NodePath("ColorRect/Box3/EnemyInfo/HPLabel")
+EnemyStatsLabel = NodePath("ColorRect/Box3/EnemyInfo/StatsLabel")
+EnemyImage = NodePath("ColorRect/Box3/EnemyInfo/TextureRect")
+CardAttackButton = NodePath("ColorRect/CardContainer/CardAttack")
+CardSkill1Button = NodePath("ColorRect/CardContainer/CardSkill1")
+CardSkill2Button = NodePath("ColorRect/CardContainer/CardSkill2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.47058824)
+
+[node name="Box1" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 648.0
+
+[node name="PlayerInfo" type="VBoxContainer" parent="ColorRect/Box1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HPLabel" type="Label" parent="ColorRect/Box1/PlayerInfo"]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="StaminaLabel" type="Label" parent="ColorRect/Box1/PlayerInfo"]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="PlayerImage" type="TextureRect" parent="ColorRect/Box1/PlayerInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ufmri")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CardContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_right = -384.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardAttack" type="Button" parent="ColorRect/CardContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "Zwyczajny atak który przywraca stamine"
+autowrap_mode = 3
+
+[node name="CardSkill1" type="Button" parent="ColorRect/CardContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "Wzmocniony atak który zadaje dwókrotny demage
+(-2 Staminy)"
+autowrap_mode = 3
+
+[node name="CardSkill2" type="Button" parent="ColorRect/CardContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "umiejętność wyleczenia się 
+(-3 Staminy)"
+autowrap_mode = 3
+
+[node name="Box3" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_left = 768.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="EnemyInfo" type="VBoxContainer" parent="ColorRect/Box3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HPLabel" type="Label" parent="ColorRect/Box3/EnemyInfo"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Box3/EnemyInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_rme3j")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="StatsLabel" type="Label" parent="ColorRect/Box3/EnemyInfo"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+
+[node name="WinLabel" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 642.0
+offset_bottom = 232.0
+
+[connection signal="pressed" from="ColorRect/CardContainer/CardAttack" to="." method="_on_card_attack_pressed"]
+[connection signal="pressed" from="ColorRect/CardContainer/CardSkill1" to="." method="_on_card_skill_1_pressed"]
+[connection signal="pressed" from="ColorRect/CardContainer/CardSkill2" to="." method="_on_card_skill_2_pressed"]

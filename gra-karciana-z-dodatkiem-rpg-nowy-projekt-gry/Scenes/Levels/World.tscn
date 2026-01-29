@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://tbn0d0ihi3yv"]
+
+[ext_resource type="PackedScene" uid="uid://cvlkcq5m0c28j" path="res://Scenes/actors/player.tscn" id="1_0yxnd"]
+[ext_resource type="Script" uid="uid://b1702r1h205" path="res://scripts/EnemySpawner.cs" id="2_w0a6n"]
+[ext_resource type="PackedScene" uid="uid://c0an1mx6y7pkd" path="res://Scenes/actors/SkeletonWarrior.tscn" id="3_28y5c"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_0yxnd")]
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(-256, -368)
+script = ExtResource("2_w0a6n")
+EnemyScene = ExtResource("3_28y5c")
+SpawnArea = Vector2(600, 200)

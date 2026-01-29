@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cna2g5swnfo5y"]
 
-[ext_resource type="Script" uid="uid://ddugch0k5eix4" path="res://AudioSettings.cs" id="1_h2d0o"]
+[ext_resource type="Script" uid="uid://ddugch0k5eix4" path="res://scripts/AudioSettings.cs" id="1_h2d0o"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,23 +14,24 @@ script = ExtResource("1_h2d0o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -45.5
-offset_right = 150.0
-offset_bottom = 45.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 376.0
+offset_top = 176.0
+offset_right = -377.77777
+offset_bottom = -248.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MasterVolume" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
-
-[node name="MusicVolume" type="HSlider" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="SFXVolume" type="HSlider" parent="VBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 6
 
 [node name="Mute" type="CheckBox" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 text = "Mute"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2

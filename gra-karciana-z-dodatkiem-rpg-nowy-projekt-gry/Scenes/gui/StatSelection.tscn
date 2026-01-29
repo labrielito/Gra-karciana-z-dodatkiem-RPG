@@ -1,0 +1,210 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5nf5xx2atgcr"]
+
+[ext_resource type="Texture2D" uid="uid://cnp13fieidse2" path="res://assets/art/WarriorFront.png" id="1_705rx"]
+[ext_resource type="Script" uid="uid://cuke31hnjux85" path="res://scripts/StatSelection.cs" id="1_iruuy"]
+
+[node name="StatScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iruuy")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="MainContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LeftColumn" type="VBoxContainer" parent="MarginContainer/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ClassIcon" type="TextureRect" parent="MarginContainer/MainContainer/LeftColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_705rx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ClassName" type="Label" parent="MarginContainer/MainContainer/LeftColumn"]
+layout_mode = 2
+text = "Wojownik"
+horizontal_alignment = 1
+
+[node name="RightColumn" type="VBoxContainer" parent="MarginContainer/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FreePointsRow" type="HBoxContainer" parent="MarginContainer/MainContainer/RightColumn"]
+layout_mode = 2
+
+[node name="FreePointsLabel" type="Label" parent="MarginContainer/MainContainer/RightColumn/FreePointsRow"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Dostępne punkty do wykorzystania:"
+
+[node name="PointsLabel" type="Label" parent="MarginContainer/MainContainer/RightColumn/FreePointsRow"]
+layout_mode = 2
+text = "10"
+
+[node name="StatsList" type="VBoxContainer" parent="MarginContainer/MainContainer/RightColumn"]
+layout_mode = 2
+
+[node name="StrengthRow" type="HBoxContainer" parent="MarginContainer/MainContainer/RightColumn/StatsList"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/StrengthRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Siła"
+
+[node name="ButtonMinus" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/StrengthRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/StrengthRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "x"
+
+[node name="AddButton" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/StrengthRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "+"
+
+[node name="AgilityRow" type="HBoxContainer" parent="MarginContainer/MainContainer/RightColumn/StatsList"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/AgilityRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Zręczność"
+
+[node name="ButtonMinus" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/AgilityRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/AgilityRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "x"
+
+[node name="AddButton" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/AgilityRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "+"
+
+[node name="IntelligenceRow" type="HBoxContainer" parent="MarginContainer/MainContainer/RightColumn/StatsList"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/IntelligenceRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Inteligencja"
+
+[node name="ButtonMinus" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/IntelligenceRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/IntelligenceRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "x"
+
+[node name="AddButton" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/IntelligenceRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "+"
+
+[node name="SpeedRow" type="HBoxContainer" parent="MarginContainer/MainContainer/RightColumn/StatsList"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/SpeedRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Szybkość"
+
+[node name="ButtonMinus" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/SpeedRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/SpeedRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "x"
+
+[node name="AddButton" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/SpeedRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "+"
+
+[node name="LuckRow" type="HBoxContainer" parent="MarginContainer/MainContainer/RightColumn/StatsList"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/LuckRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Szczęście"
+
+[node name="ButtonMinus" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/LuckRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/LuckRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "x"
+
+[node name="AddButton" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/LuckRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "+"
+
+[node name="ProtectionRow" type="HBoxContainer" parent="MarginContainer/MainContainer/RightColumn/StatsList"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/ProtectionRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ochrona"
+
+[node name="ButtonMinus" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/ProtectionRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="MarginContainer/MainContainer/RightColumn/StatsList/ProtectionRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "x"
+
+[node name="AddButton" type="Button" parent="MarginContainer/MainContainer/RightColumn/StatsList/ProtectionRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "+"
+
+[node name="StartButton" type="Button" parent="MarginContainer/MainContainer/RightColumn"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Start Game"
