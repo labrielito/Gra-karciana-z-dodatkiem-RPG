@@ -1,10 +1,9 @@
 using Godot;
 using System;
-using System.Threading.Tasks; // Potrzebne do opóźnienia tury wroga
+using System.Threading.Tasks;
 
 public partial class BattleScene : Node2D 
 {
-    // --- UI ---
     [ExportGroup("Gracz (Lewa Strona)")]
     [Export] public Label PlayerHPLabel;
     [Export] public Label PlayerStaminaLabel;
@@ -21,7 +20,6 @@ public partial class BattleScene : Node2D
     [Export] public Button CardSkill1Button; 
     [Export] public Button CardSkill2Button; 
 
-    // --- Dane ---
     public CharacterStats PlayerStats; 
     public CharacterStats EnemyStats;  
 
